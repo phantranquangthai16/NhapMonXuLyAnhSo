@@ -1,1 +1,38 @@
+CÂU 1 :### Bài 1: Nạp ảnh và lưu thành 3 ảnh với 3 màu khác nhau
+Đoạn code trên thực hiện việc chia ảnh màu gốc bird.png thành ba kênh màu riêng biệt (Blue, Green, Red) bằng hàm cv2.split().
+Sau đó, nó tạo ba ảnh mới với mỗi ảnh chỉ chứa một kênh màu duy nhất:
+img_red: Ảnh này chỉ có kênh đỏ (r), còn lại các kênh xanh và xanh dương được thay bằng các mảng zeros (mảng toàn số 0).
+img_green: Ảnh này chỉ có kênh xanh (g).
+img_blue: Ảnh này chỉ có kênh xanh dương (b).
+Cuối cùng, ba ảnh này được lưu lại với các tên file tương ứng là bird_red.png, bird_green.png, và bird_blue.png.
+
+CÂU 2 :### Bài 2: Hoán đổi giá trị các màu và lưu ảnh
+Ở đoạn này, bạn hoán đổi các kênh màu của ảnh:
+Kênh đỏ (r) trở thành kênh đầu tiên.
+Kênh xanh (g) giữ nguyên.
+Kênh xanh dương (b) trở thành kênh cuối cùng.
+Kết quả là một ảnh mới, nơi các màu trong ảnh gốc bị thay đổi theo cách hoán đổi này, và ảnh mới được lưu với tên bird_swap.png.
+
+CÂU 3 :### Bài 3: Chuyển sang hệ HSV và lưu thành 3 ảnh với 3 màu khác nhau
+Đoạn mã này chuyển ảnh gốc từ không gian màu BGR (Blue-Green-Red) sang không gian màu HSV (Hue, Saturation, Value) bằng hàm cv2.cvtColor().
+Sau khi chuyển sang HSV, ảnh sẽ được chia thành ba kênh riêng biệt:
+h: Kênh sắc độ (hue), đại diện cho màu sắc của ảnh.
+s: Kênh độ bão hòa (saturation), thể hiện mức độ "sắc nét" của màu.
+v: Kênh độ sáng (value), thể hiện độ sáng của ảnh.
+Cuối cùng, ba kênh này được lưu thành ba ảnh riêng biệt với tên file bird_H.png, bird_S.png, và bird_V.png.
+
+CÂU 4: ### Bài 4: Chuyển sang HSV và chỉnh kênh H, V
+Đoạn mã này tiếp tục từ bài 3, nơi ảnh đã được chuyển sang không gian màu HSV.
+Chỉnh sửa kênh H (Hue): Kênh sắc độ h bị giảm xuống bằng cách chia giá trị của mỗi pixel cho 3, làm giảm độ phong phú của màu sắc.
+Chỉnh sửa kênh V (Value): Kênh độ sáng v bị giảm xuống 75% (bằng cách nhân với 0.75), làm giảm độ sáng của ảnh.
+Sau khi chỉnh sửa, ba kênh lại được kết hợp lại với nhau thành một ảnh HSV mới.
+Cuối cùng, ảnh HSV này được chuyển về không gian màu BGR (để có thể hiển thị và lưu trữ) và lưu lại dưới tên bird_modified.png.
+
+CÂU 5: ### Bài 5: Sử dụng mean filter cho các hình trong thư mục 'Exercise'
+Đoạn mã này thực hiện lọc ảnh trong một thư mục (Exercise):
+Đầu tiên, nó tạo thư mục Exercise_filtered nếu chưa tồn tại.
+Sau đó, nó duyệt qua tất cả các tệp trong thư mục Exercise. Nếu tệp có đuôi .png, .jpg, hoặc .jpeg, 
+ảnh sẽ được đọc và áp dụng một bộ lọc trung bình (mean filter) bằng cách sử dụng hàm cv2.blur(). 
+Bộ lọc trung bình sử dụng một cửa sổ có kích thước (5, 5) để làm mịn ảnh.
+Cuối cùng, ảnh đã được lọc sẽ được lưu vào thư mục Exercise_filtered với tên file giống như tên file gốc.
 
